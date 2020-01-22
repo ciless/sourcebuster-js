@@ -59,15 +59,6 @@ module.exports = {
             }
           }
 
-          for (var i = 0; i < _in.length; i++) {
-            if (cookies.get(_in[i])) {
-              var buffer = cookies.get(_in[i]).replace(/(\|)?\|(\|)?/g, safeReplace);
-              cookies.destroy(_in[i], _with.d, _with.i);
-              cookies.destroy(_in[i], _with.d, !_with.i);
-              cookies.set(_in[i], buffer, _with.l, _with.d, _with.i);
-            }
-          }
-
           // Update `session`
           if (cookies.get(data.containers.session)) {
             cookies.set(data.containers.session, data.pack.session(0), _with.l, _with.d, _with.i);
